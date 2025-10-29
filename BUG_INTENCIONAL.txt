@@ -1,0 +1,47 @@
+BUG INTENCIONAL – Projeto Cafeteria (Desafio 1)
+
+Descrição do bug:
+-----------------
+Na tela "Gestão de Estoque", ao registrar uma movimentação de SAÍDA,
+o valor do estoque exibido na lista de insumos não é atualizado
+imediatamente após o clique em "Registrar".
+
+O estoque real é atualizado corretamente no banco de dados,
+mas o frontend exibe o valor antigo até a próxima atualização da página
+ou até que outra movimentação seja feita.
+
+Como reproduzir:
+----------------
+1. Acesse o sistema com:
+   Email: gerente@cafe.com
+   Senha: 123456
+
+2. Vá até "Gestão de Estoque".
+3. Escolha um insumo e selecione o tipo "Saída".
+4. Informe uma quantidade e clique em "Registrar".
+5. Observe que a tabela continua mostrando o mesmo valor do estoque atual.
+
+6. Recarregue a página ou volte para o Dashboard e entre novamente.
+   → Agora o valor atualizado aparece corretamente.
+
+Causa técnica:
+--------------
+O React atualiza o estado `insumos` antes da requisição à API ser concluída.
+O comando `setInsumos(await api.insumos())` está sendo chamado,
+mas a renderização ocorre antes da nova resposta ser aplicada.
+
+Correção sugerida:
+------------------
+Mover a atualização da lista de insumos (setInsumos)
+para dentro de um `useEffect` ou aguardar o `await` antes de atualizar `movs`.
+
+Exemplo de correção:
+--------------------
+Substituir:
+    setInsumos(insertionSortByName(await api.insumos()));
+    setMovs(await api.movimentos());
+
+Por:
+    const atualizados = await api.insumos();
+    setInsumos(insertionSortByName(atualizados));
+    setMovs(await api.movimentos());
