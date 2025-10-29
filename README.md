@@ -1,6 +1,5 @@
-# Café do Código — Full Stack (Prisma + React)
 
-Projeto completo com backend (Prisma + SQLite) e frontend (React + Vite).
+
 
 ## Requisitos
 - Node.js 18+ (Windows)
