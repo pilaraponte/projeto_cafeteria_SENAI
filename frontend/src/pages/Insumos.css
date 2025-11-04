@@ -1,129 +1,178 @@
+
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
 .insumos-container {
-    font-family: "Inter", sans-serif;
-    padding: 120px 40px;
-    background-color: #fffaf5;
-    color: #3b2f2f;
-    min-height: 100vh;
-  }
-  
-  .insumos-container h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: #2b1d1d;
-    text-align: center;
-  }
-  
-  .busca-section {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .busca-section input {
-    padding: 0.6rem 1rem;
-    border: 1px solid #cfc6c0;
-    border-radius: 0.5rem;
-    width: 300px;
-    outline: none;
-    transition: all 0.2s ease;
-  }
-  
-  .busca-section input:focus {
-    border-color: #3b2f2f;
-    box-shadow: 0 0 0 3px rgba(59, 47, 47, 0.1);
-  }
-  
-  .tabela-insumos {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .tabela-insumos th {
-    background-color: #3b2f2f;
-    color: #fff;
-    padding: 12px;
-    text-align: left;
-  }
-  
-  .tabela-insumos td {
-    background-color: #fff;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .tabela-insumos tr:hover td {
-    background-color: #fff5e9;
-  }
-  
-  .tabela-insumos button {
-    background-color: #f9d29d;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    color: #3b2f2f;
-    transition: all 0.2s ease;
-  }
-  
-  .tabela-insumos button:hover {
-    background-color: #f3c37b;
-  }
-  
-  .form-insumo {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 10px;
-    max-width: 800px;
-    margin-inline: auto;
-  }
-  
-  .form-insumo input {
-    padding: 0.7rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  
-  .form-insumo input:focus {
-    border-color: #3b2f2f;
-  }
-  
-  .btn-salvar {
-    display: block;
-    margin: 20px auto 0;
-    background-color: #3b2f2f;
-    color: #fff;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 0.6rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-salvar:hover {
-    background-color: #241a1a;
-  }
-  
-  .btn-voltar {
-    background-color: #f9d29d;
-    border: none;
-    padding: 0.6rem 1rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    color: #3b2f2f;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .btn-voltar:hover {
-    background-color: #f3c37b;
-  }
-  
+  padding: 120px 40px;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--surface) 100%);
+  color: var(--coffee);
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+ .insumos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.insumos-header h2 {
+  font-size: 2rem;
+  color: var(--coffee-900);
+  text-align: center;
+  position: relative;
+}
+
+.insumos-header h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-1);
+  margin: 0.5rem auto;
+  border-radius: 4px;
+}
+
+ .tabela-insumos {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 2rem;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.tabela-insumos th {
+  background-color: var(--coffee);
+  color: var(--surface);
+  padding: 14px;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.tabela-insumos td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.tabela-insumos tr:hover td {
+  background-color: var(--cream-2);
+}
+
+.tabela-insumos button {
+  background-color: var(--accent-1);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--coffee);
+  transition: all 0.25s ease;
+}
+
+.tabela-insumos button:hover {
+  background-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+ h3 {
+  font-size: 1.6rem;
+  margin-top: 3rem;
+  color: var(--coffee-900);
+  text-align: center;
+  font-weight: 600;
+}
+
+h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-1);
+  margin: 0.6rem auto 1.5rem;
+  border-radius: 4px;
+}
+
+.form-insumo {
+  background: var(--surface);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 700px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem 1.5rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.form-insumo input {
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: var(--cream);
+  transition: all 0.2s;
+}
+
+.form-insumo input:focus {
+  border-color: var(--accent-1);
+  background-color: var(--surface);
+  box-shadow: 0 0 6px rgba(249, 210, 157, 0.5);
+}
+
+ .btn-salvar {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: var(--coffee);
+  color: var(--surface);
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(59, 47, 47, 0.15);
+}
+
+.btn-salvar:hover {
+  background-color: var(--coffee-900);
+  transform: translateY(-2px);
+}
+
+.btn-voltar {
+  background-color: var(--accent-1);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  color: var(--coffee);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-voltar:hover {
+  background-color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+ 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

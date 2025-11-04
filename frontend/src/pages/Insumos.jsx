@@ -18,6 +18,7 @@ export default function Insumos() {
   async function carregar() {
     setLista(await api.insumos());
   }
+
   useEffect(() => {
     carregar();
   }, []);
@@ -25,11 +26,13 @@ export default function Insumos() {
   async function salvar() {
     if (!form.nome || !form.categoria)
       return alert("Preencha nome e categoria");
+
     if (editing) {
       await api.editarInsumo(editing.id, form);
     } else {
       await api.criarInsumo(form);
     }
+
     setForm({ nome: "", categoria: "", estoque_minimo: 0, estoque_atual: 0 });
     setEditing(null);
     await carregar();
@@ -41,19 +44,20 @@ export default function Insumos() {
     await carregar();
   }
 
-  // 🔙 Função para voltar à dashboard
   function voltar() {
     nav("/dashboard");
   }
 
   return (
     <div className="insumos-container">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="insumos-header">
         <h2>Cadastro de Insumos</h2>
-        <button className="btn-voltar" onClick={voltar}>← Voltar</button>
+        <button className="btn-voltar" onClick={voltar}>
+          ← Voltar
+        </button>
       </div>
 
-      <table className="tabela-insumos">
+      <table className="tabela-insumos table">
         <thead>
           <tr>
             <th>Nome</th>
@@ -71,15 +75,28 @@ export default function Insumos() {
               <td>{i.estoque_minimo}</td>
               <td>{i.estoque_atual}</td>
               <td>
-                <button onClick={() => { setEditing(i); setForm(i); }}>Editar</button>
-                <button onClick={() => excluir(i.id)} style={{ marginLeft: 6 }}>Excluir</button>
+                <button
+                  onClick={() => {
+                    setEditing(i);
+                    setForm(i);
+                  }}
+                >
+                  Editar
+                </button>
+                <button
+                  onClick={() => excluir(i.id)}
+                  style={{ marginLeft: 6 }}
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <h3>{editing ? "Editar" : "Novo"} Insumo</h3>
+      <h3>{editing ? "Editar Insumo" : "Novo Insumo"}</h3>
+
       <div className="form-insumo">
         <input
           placeholder="Nome"
@@ -108,6 +125,7 @@ export default function Insumos() {
           }
         />
       </div>
+
       <button className="btn-salvar" onClick={salvar}>
         {editing ? "Salvar alterações" : "Criar insumo"}
       </button>

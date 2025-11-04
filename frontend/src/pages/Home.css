@@ -1,7 +1,13 @@
+@import "../theme.css";
+
+html, body {
+  overflow: hidden;  
+  height: 100%;
+}
 .home-container {
   font-family: "Inter", sans-serif;
-  background-color: #fff8f1;
-  color: #3b2f2f;
+  background-color: var(--cream);
+  color: var(--coffee);
   margin: 0;
   padding: 0;
 }
@@ -10,7 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3b2f2f;
+  background-color: var(--coffee);
   color: white;
   padding: 1rem 2rem;
   position: fixed;
@@ -38,11 +44,11 @@
   transition: color 0.3s;
 }
 .nav-links a:hover {
-  color: #f9d29d;
+  color: var(--accent-1);
 }
 .nav-login {
-  background-color: #f9d29d;
-  color: #3b2f2f;
+  background-color: var(--accent-1);
+  color: var(--coffee);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -53,11 +59,19 @@
 .nav-login:hover {
   background-color: #ffebc1;
 }
+
+.hero-image {
+  width: 200px; 
+  height: auto;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
 .hero-section {
-  background-image: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
-  background-size: cover;
   background-position: center;
-  height: 90vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +93,7 @@
   margin-bottom: 1.5rem;
 }
 .hero-btn {
-  background-color: #3b2f2f;
+  background-color: var(--coffee);
   color: white;
   border: none;
   padding: 0.8rem 1.2rem;
@@ -89,7 +103,7 @@
   transition: background-color 0.3s;
 }
 .hero-btn:hover {
-  background-color: #241a1a;
+  background-color: var(--coffee-900);
 }
 .menu-section {
   padding: 4rem 2rem;
@@ -105,7 +119,7 @@
   gap: 1.5rem;
 }
 .menu-item {
-  background-color: #fff;
+  background-color: var(--surface);
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -127,7 +141,7 @@
   font-size: 0.95rem;
 }
 .footer {
-  background-color: #3b2f2f;
+  background-color: var(--coffee);
   color: white;
   text-align: center;
   padding: 1rem;

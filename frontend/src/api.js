@@ -1,5 +1,22 @@
 const API = "http://localhost:3001/api";
 
+// Função auxiliar segura para tratar respostas HTTP
+async function handleResponse(r) {
+  let data;
+  try {
+    data = await r.json();
+  } catch {
+    data = null;
+  }
+
+  if (!r.ok) {
+    const msg = data?.erro || "Falha na requisição";
+    throw new Error(msg);
+  }
+
+  return data;
+}
+
 export const api = {
   async login(email, senha) {
     const r = await fetch(`${API}/login`, {
@@ -7,37 +24,51 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, senha }),
     });
-    return r.json();
+    return handleResponse(r);
   },
+
   async insumos(q) {
-    const url = q ? `${API}/insumos?q=${encodeURIComponent(q)}` : `${API}/insumos`;
-    return (await fetch(url)).json();
+    const url = q
+      ? `${API}/insumos?q=${encodeURIComponent(q)}`
+      : `${API}/insumos`;
+    const r = await fetch(url);
+    return handleResponse(r);
   },
+
   async criarInsumo(dados) {
-    return (await fetch(`${API}/insumos`, {
+    const r = await fetch(`${API}/insumos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dados),
-    })).json();
+    });
+    return handleResponse(r);
   },
+
   async editarInsumo(id, dados) {
-    return (await fetch(`${API}/insumos/${id}`, {
+    const r = await fetch(`${API}/insumos/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dados),
-    })).json();
+    });
+    return handleResponse(r);
   },
+
   async excluirInsumo(id) {
-    return (await fetch(`${API}/insumos/${id}`, { method: "DELETE" })).json();
+    const r = await fetch(`${API}/insumos/${id}`, { method: "DELETE" });
+    return handleResponse(r);
   },
+
   async movimentos() {
-    return (await fetch(`${API}/movimentos`)).json();
+    const r = await fetch(`${API}/movimentos`);
+    return handleResponse(r);
   },
+
   async movimentar(dados) {
-    return (await fetch(`${API}/movimentos`, {
+    const r = await fetch(`${API}/movimentos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dados),
-    })).json();
-  }
+    });
+    return handleResponse(r);
+  },
 };

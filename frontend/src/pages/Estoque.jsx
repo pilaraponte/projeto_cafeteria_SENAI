@@ -38,14 +38,15 @@ export default function Estoque() {
     if (!sel) return setMsg("Selecione um insumo");
     if (qtd <= 0) return setMsg("Quantidade deve ser > 0");
 
+    // 🚨 BUG: quantidade enviada como string (deveria ser Number(qtd))
     const r = await api.movimentar({
       insumo_id: Number(sel),
       tipo,
-      quantidade: Number(qtd),
+      quantidade: qtd, // <-- bug realista
       data,
     });
 
-    if (r.alerta) alert(" Atenção: estoque abaixo do mínimo configurado!");
+    if (r.alerta) alert("Atenção: estoque abaixo do mínimo configurado!");
     setMsg(`Movimentação registrada. Novo estoque: ${r.novoEstoque}`);
     setInsumos(insertionSortByName(await api.insumos()));
     setMovs(await api.movimentos());
@@ -96,7 +97,9 @@ export default function Estoque() {
       {msg && <div className="msg-status">{msg}</div>}
 
       <h3 className="historico-title">Histórico de Movimentações</h3>
-      <table className="tabela-estoque">
+
+      {/* ⚠️ Bug sutil: concatenação errada no className (visualmente imperceptível, mas quebra estilo) */}
+      <table className={"tabela-estoque" + " .table"}>
         <thead>
           <tr>
             <th>ID</th>

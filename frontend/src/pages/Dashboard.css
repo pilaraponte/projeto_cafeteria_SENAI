@@ -1,7 +1,8 @@
+@import "../theme.css";
  
 .home-container {
-  background-color: #fffaf5;
-  color: #3b2f2f;
+  background-color: var(--surface)af5;
+  color: var(--coffee);
   min-height: 100vh;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -18,8 +19,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #3b2f2f;
-  color: #fff;
+  background-color: var(--coffee);
+  color: var(--surface);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,8 +35,8 @@
 }
 
 .navbar button {
-  background-color: #f9d29d;
-  color: #3b2f2f;
+  background-color: var(--accent-1);
+  color: var(--coffee);
   border: none;
   padding: 0.6rem 1rem;
   border-radius: 0.5rem;
@@ -45,7 +46,7 @@
 }
 
 .navbar button:hover {
-  background-color: #f3c37b;
+  background-color: var(--accent-2);
 }
 
  
@@ -61,7 +62,7 @@
 
  
 .hero-btn {
-  background-color: #3b2f2f;
+  background-color: var(--coffee);
   color: white;
   border: none;
   padding: 0.9rem 1.5rem;
@@ -73,12 +74,12 @@
 }
 
 .hero-btn:hover {
-  background-color: #241a1a;
+  background-color: var(--coffee-900);
 }
 
 .nav-login {
-  background-color: #f9d29d;
-  color: #3b2f2f;
+  background-color: var(--accent-1);
+  color: var(--coffee);
   border: none;
   padding: 0.9rem 1.5rem;
   border-radius: 0.6rem;
@@ -89,13 +90,13 @@
 }
 
 .nav-login:hover {
-  background-color: #f3c37b;
+  background-color: var(--accent-2);
 }
  
 .footer {
   margin-top: auto;
-  background-color: #3b2f2f;
-  color: #fff;
+  background-color: var(--coffee);
+  color: var(--surface);
   text-align: center;
   padding: 1rem;
   width: 100%;

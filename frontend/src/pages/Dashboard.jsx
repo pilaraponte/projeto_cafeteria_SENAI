@@ -13,11 +13,8 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* 🔝 Navbar fixa */}
-      <header className="navbar">
-        <h1>Café SENAI</h1>
-        <button onClick={sair}>Sair</button>
-      </header>
+ 
+ 
 
       <div className="home-container">
         <h2>Bem-vindo, {usuario.nome || "Usuário"}!</h2>
@@ -44,9 +41,6 @@ export default function Dashboard() {
       </div>
 
  
-      <footer className="footer">
-        <p>© 2025 Café SENAI</p>
-      </footer>
     </>
   );
 }

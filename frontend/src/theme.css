@@ -1,0 +1,60 @@
+:root{
+  --coffee:#3b2f2f;
+  --coffee-900:#241a1a;
+  --cream:#fff8f1;
+  --cream-2:#fff5e9;
+  --accent-1:#f9d29d;
+  --accent-2:#f3c37b;
+  --text:#3b2f2f;
+  --surface:#fff;
+  --muted:#cfc6c0;
+}
+
+.btn{
+  background: var(--coffee);
+  color: #fff;
+  border: none;
+  padding: .75rem 1rem;
+  border-radius: .6rem;
+  cursor: pointer;
+  transition: transform .05s ease, filter .2s ease;
+}
+.btn:hover{ filter: brightness(.95); }
+.btn:active{ transform: translateY(1px); }
+
+.input, input, select, textarea{
+  border: 1px solid var(--muted);
+  border-radius: .5rem;
+  padding: .6rem .75rem;
+}
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td{
+  padding: .75rem;
+  border-bottom: 1px solid var(--muted);
+  text-align: left;
+}
+.table thead th{
+  background: var(--cream-2);
+  color: var(--text);
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.navbar{
+  background: var(--coffee);
+  color: #fff;
+}
+
+.footer{
+  background: var(--coffee);
+  color: #fff;
+}
+
